@@ -16,6 +16,7 @@ if [ $int_balance -ge "500" ]; then
     echo "Rolls successfully bought"
   else
     echo "Unable to buy rolls"
+  fi
 else
   echo "Insufficient balance"
 fi
