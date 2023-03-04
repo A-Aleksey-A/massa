@@ -1,0 +1,20 @@
+#!/bin/bash
+
+cd 
+
+
+#!/bin/bash
+
+#Получаем адрес
+cd $HOME/massa/massa-client
+massa_wallet_address=$(./massa-client --pwd $massa_pass wallet_info | grep Address | awk '{ print $2 }')
+echo $massa_wallet_address
+
+balance=$(./massa-client --pwd $massa_pass wallet_info | grep "Balance" | awk '{ print $2 }' | sed 's/final=//;s/,//')
+#echo $balance
+int_balance=${balance%%.*}
+if [ $int_balance -ge "1000" ]; then
+echo "Sufficient balance"
+else
+echo "Insufficient balance"
+fi
